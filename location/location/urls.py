@@ -23,6 +23,7 @@ from drf_yasg.views import get_schema_view
 from voiture.ulrs import router as voiture_router
 
 
+
 schema_view = get_schema_view(
    openapi.Info(
       title="Location API",

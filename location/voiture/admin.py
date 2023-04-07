@@ -26,11 +26,12 @@ class VoitureAdmin(admin.ModelAdmin):
 @admin.register(Reservation)
 class ReservationAdmin(admin.ModelAdmin):
     list_display = ("date_debut" , "date_fin" , "voiture","client")
-
+    list_filter = ("date_debut" , "date_fin" , "voiture","client")
+    search_fields = ("voiture",)
 
 
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
     list_display = ("username" , "email" , "password" , "age", "date_permis", "ref_permis")
-
+    search_fields = ("email",)

@@ -1,4 +1,6 @@
-from django.http import HttpResponse
+from http import HTTPStatus
+
+from django.http import HttpResponse, JsonResponse
 from rest_framework.permissions import IsAuthenticated
 
 from rest_framework.response import Response
@@ -40,10 +42,13 @@ class VoitureViewSet(viewsets.ModelViewSet):
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
-    filterset_fields = ['client']
+    filterset_fields = ["date_debut" , "date_fin" , "voiture","client"]
+    filterset_fields = ['voiture']
 
 
 class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
+    filterset_fields = ["username" , "email" , "password" , "age", "date_permis", "ref_permis"]
+    filterset_fields = ['email']
 

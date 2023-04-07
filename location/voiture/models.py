@@ -50,5 +50,5 @@ class Reservation(models.Model):
     client = models.ForeignKey(Client , on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{} {} {} {} {} '.format(self.date_debut , self.date_fin , self.voiture , self.client)
+        return '{} {} {} {}  '.format(self.date_debut , self.date_fin , self.voiture , self.client)
 

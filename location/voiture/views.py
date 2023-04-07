@@ -35,7 +35,15 @@ class VoitureViewSet(viewsets.ModelViewSet):
     filterset_fields = ['modele', 'marque', 'prix_jour', 'isdisponibilite', 'nombre_siege', 'ville', 'type']
     search_fields = ['modele']
 
-    def test(self ):
-        queryset = VoitureSerializer.object.all()
-        return queryset
+
+
+class ReservationViewSet(viewsets.ModelViewSet):
+    queryset = Reservation.objects.all()
+    serializer_class = ReservationSerializer
+    filterset_fields = ['client']
+
+
+class ClientViewSet(viewsets.ModelViewSet):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerializer
 

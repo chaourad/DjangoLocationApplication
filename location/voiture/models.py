@@ -31,12 +31,24 @@ class Voiture(models.Model):
 
     def __str__(self):
         return '{} {} {} {} {} {} {} {}'.format(self.matricule , self.modele , self.marque, self.prix_jour,self.isdisponibilite,self.nombre_siege,self.ville, self.type)
+class Client(models.Model):
+    username = models.CharField(max_length=50)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=50)
+    age = models.IntegerField()
+    date_permis = models.DateField()
+    ref_permis = models.CharField(max_length=20)
+
+    def __str__(self):
+        return '{} {} {} {} {} {} '.format(self.username , self.email , self.password , self.age , self.date_permis ,self.ref_permis)
+
 
 class Reservation(models.Model):
-    nombre_siege = models.IntegerField()
-# date_debut
-#   date_fin
+    date_debut = models.DateField()
+    date_fin = models.DateField()
     voiture = models.OneToOneField(Voiture , on_delete=models.CASCADE)
+    client = models.ForeignKey(Client , on_delete=models.CASCADE)
 
-
+    def __str__(self):
+        return '{} {} {} {} {} '.format(self.date_debut , self.date_fin , self.voiture , self.client)
 

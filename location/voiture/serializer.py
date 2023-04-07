@@ -25,3 +25,14 @@ class VoitureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Voiture
         fields = ('matricule','modele','marque','prix_jour','isdisponibilite','nombre_siege','photo','ville','type')
+class ReservationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Reservation
+        fields = ('date_debut', 'date_fin','voiture','client')
+
+class ClientSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Client
+        fields = '__all__'

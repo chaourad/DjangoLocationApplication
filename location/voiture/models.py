@@ -25,7 +25,7 @@ class Voiture(models.Model):
     prix_jour = models.DecimalField(max_digits=8, decimal_places=2)
     isdisponibilite = models.BooleanField(default=False)
     nombre_siege = models.IntegerField()
-    photo = models.ImageField(upload_to='cars/')
+    photo = models.ImageField(upload_to='Images/' )
     ville = models.ForeignKey(Ville, related_name="villes",on_delete=models.CASCADE)
     type = models.ForeignKey(Type ,related_name="types", on_delete=models.CASCADE)
 
@@ -34,6 +34,8 @@ class Voiture(models.Model):
 
 class Reservation(models.Model):
     nombre_siege = models.IntegerField()
+# date_debut
+#   date_fin
     voiture = models.OneToOneField(Voiture , on_delete=models.CASCADE)
 
 

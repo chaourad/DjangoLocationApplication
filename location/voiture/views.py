@@ -35,7 +35,7 @@ class VoitureViewSet(viewsets.ModelViewSet):
     serializer_class = VoitureSerializer
 # permission_classes = (IsAuthenticated,)
     filterset_fields = ['modele', 'marque', 'prix_jour', 'isdisponibilite', 'nombre_siege', 'ville', 'type']
-    search_fields = ['modele']
+    search_fields = ['ville']
 
 
 

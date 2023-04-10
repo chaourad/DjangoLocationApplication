@@ -21,7 +21,7 @@ class VoitureAdmin(admin.ModelAdmin):
 
     list_display = ('matricule', 'modele', 'marque', 'prix_jour', 'isdisponibilite', 'nombre_siege', 'ville', 'type' )
     list_filter = ('modele', 'marque', 'prix_jour', 'isdisponibilite', 'nombre_siege', 'ville', 'type')
-    search_fields = ( 'modele',)
+    search_fields = ( 'ville',)
 
 @admin.register(Reservation)
 class ReservationAdmin(admin.ModelAdmin):

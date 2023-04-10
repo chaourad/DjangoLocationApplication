@@ -25,9 +25,9 @@ class Voiture(models.Model):
     prix_jour = models.DecimalField(max_digits=8, decimal_places=2)
     isdisponibilite = models.BooleanField(default=False)
     nombre_siege = models.IntegerField()
-    photo = models.ImageField(upload_to='Images/' )
-    ville = models.ForeignKey(Ville, related_name="villes",on_delete=models.CASCADE)
-    type = models.ForeignKey(Type ,related_name="types", on_delete=models.CASCADE)
+    photo = models.CharField(max_length=None, null=True)
+    ville = models.ForeignKey(Ville,on_delete=models.CASCADE)
+    type = models.ForeignKey(Type , on_delete=models.CASCADE)
 
     def __str__(self):
         return '{} {} {} {} {} {} {} {}'.format(self.matricule , self.modele , self.marque, self.prix_jour,self.isdisponibilite,self.nombre_siege,self.ville, self.type)
